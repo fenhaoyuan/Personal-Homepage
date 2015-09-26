@@ -2,10 +2,6 @@
     Stephen Yuan's homepage!
 </h1>
 
-<div>
-    <div weather></div>
-</div>
-
 <div class="">
     <div class="row">
         <div favourite class="col-md-2 col-sm-3 col-xs-4" 
@@ -14,8 +10,17 @@
     </div>
 </div>
 
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div weather-day class="col-md-3 col-sm-4 col-xs-6" ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" ng-if="weatherForecast" 
+                 ng-repeat="day in weatherForecast" day="day" index="$index"></div>
+        </div>
+    </div>
+</div>
+
 <script type="text/ng-template" id="favourite.d.html">
-    <a class="favourite-website btn btn-default btn-lg btn-block" ng-click="direct()">
+    <a class="favourite-website btn btn-default btn-lg btn-block" ng-href="{{website.href}}" target="_blank">
         <div>
             <img class="favourite-img" ng-src="{{website.img}}" />
         </div>
@@ -25,39 +30,22 @@
     </a>
 </script>
 
-<script type="text/ng-template" id="weather.d.html">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>Weather</h4>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div weather-day class="col-md-2" ng-if="weatherCurrent" day="weatherCurrent" is-forecast="false"></div>
-                <div weather-day class="col-md-2" ng-if="weatherForecast.list" ng-repeat="day in weatherForecast.list" day="day" is-forecast="true"></div>
-            </div>
-        </div>
-    </div>
-</script>
-
 <script type="text/ng-template" id="weather-day.d.html">
     <div>
-        <span class="weather-label" ng-if="!isForecast">
-            Today
+        <span class="weather-label">
+            {{day.date.weekday}}
         </span>
-        <span class="weather-label" ng-if="isForecast">
-            {{date}}
-        </span>
-        <img ng-src="{{icon}}" />
+        <img ng-src="{{day.icon_url}}" />
     </div>
     <div>
-        {{description}}
-    </div>
-    <div ng-if="!isForecast">
-        Current: {{tempCurrent}} &#8451;
+        {{day.date.day}} {{day.date.monthname_short}}
     </div>
     <div>
-        {{tempMin}} &#8451;
+        {{day.conditions}}
+    </div>
+    <div>
+        {{day.low.celsius}} &#8451;
         -
-        {{tempMax}} &#8451;
+        {{day.high.celsius}} &#8451;
     </div>
 </script>

@@ -6,13 +6,18 @@
         <title>Stephen Yuan Personal Homepage</title>
         <meta name="description" content="Stephen Yuan's personal homepage.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+        <link rel="stylesheet" href="css/common.css"></link>
     </head>
     
     <body>
-        <div ng-view></div>
+        <div class="container-fluid" ng-view></div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap.js"></script>-->
+        
         <script src="app.js"></script>
         <script src="components/homepage/homepage.js"></script>
     </body>

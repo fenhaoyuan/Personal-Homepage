@@ -2,5 +2,6 @@
 
 var myApp = angular.module('myApp', [
     'ngRoute',
+//    'ui.bootstrap',
     'homepage'
 ]);

@@ -2,10 +2,14 @@
     Stephen Yuan's homepage!
 </h1>
 
+<div>
+    <div weather></div>
+</div>
+
 <div class="">
     <div class="row">
-        <div class="col-md-2 col-sm-3 col-xs-4" 
-             favourite ng-repeat="website in favourites" website="website">
+        <div favourite class="col-md-2 col-sm-3 col-xs-4" 
+             ng-repeat="website in favourites" website="website">
         </div>
     </div>
 </div>
@@ -15,8 +19,45 @@
         <div>
             <img class="favourite-img" ng-src="{{website.img}}" />
         </div>
-        <div>
+        <div class="favourite-title">
             {{website.title}}
         </div>
     </a>
+</script>
+
+<script type="text/ng-template" id="weather.d.html">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Weather</h4>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div weather-day class="col-md-2" ng-if="weatherCurrent" day="weatherCurrent" is-forecast="false"></div>
+                <div weather-day class="col-md-2" ng-if="weatherForecast.list" ng-repeat="day in weatherForecast.list" day="day" is-forecast="true"></div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="weather-day.d.html">
+    <div>
+        <span class="weather-label" ng-if="!isForecast">
+            Today
+        </span>
+        <span class="weather-label" ng-if="isForecast">
+            {{date}}
+        </span>
+        <img ng-src="{{icon}}" />
+    </div>
+    <div>
+        {{description}}
+    </div>
+    <div ng-if="!isForecast">
+        Current: {{tempCurrent}} &#8451;
+    </div>
+    <div>
+        {{tempMin}} &#8451;
+        -
+        {{tempMax}} &#8451;
+    </div>
 </script>

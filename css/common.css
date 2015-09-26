@@ -6,3 +6,11 @@
     width: 32px;
     height: 32px;
 }
+.favourite-title {
+    margin-top: 5px;
+}
+
+.weather-label {
+    font-size: 20px;
+    font-weight: bold;
+}

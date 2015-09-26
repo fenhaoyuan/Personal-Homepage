@@ -46,7 +46,7 @@ homepage.controller('homepageCtrl', ['$scope',
                 img: 'https://www.flybuys.com.au/opencms/opencms/flybuys-static/imgs/root/favicon.png'
             },
             {
-                title: 'Google Maps',
+                title: 'Maps',
                 href: 'https://www.google.com.au/maps',
                 img: 'https://www.google.com/images/branding/product/ico/maps_32dp.ico'
             }
@@ -76,6 +76,71 @@ homepage.directive('favourite', [
             ],
             scope: {
                 website: '='
+            }
+        };
+    }
+]);
+
+homepage.directive('weather', [
+    function() {
+        return {
+            templateUrl: 'weather.d.html',
+            controller: ['$scope', '$http',
+                function($scope, $http) {
+                    $scope.current = function() {
+                        var url = 'http://api.openweathermap.org/data/2.5/weather?id=7839805&units=metric';
+                        $http.get(url).then(
+                            function(response) {
+//                                console.log(response.data);
+                                $scope.weatherCurrent = response.data;
+                            }
+                        );
+                    };
+                    
+                    $scope.forecast = function() {
+                        var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?id=7839805&units=metric';
+                        $http.get(url).then(
+                            function(response) {
+                                console.log(response.data);
+                                $scope.weatherForecast = response.data;                                
+                            }
+                        );
+                    };
+                    
+                    $scope.current();
+                    $scope.forecast();
+                    
+                }
+            ],
+            scope: {
+            }
+        }
+    }
+]);
+
+homepage.directive('weatherDay', [
+    function() {
+        return {
+            templateUrl: 'weather-day.d.html',
+            controller: ['$scope',
+                function($scope) {
+                    if (angular.isDefined($scope.isForecast) && $scope.isForecast) {
+                        var date = new Date($scope.day.dt*1000);
+                        $scope.date = date.getDate() + '/' + (date.getMonth() + 1);
+                        $scope.tempMin = $scope.day.temp.min;
+                        $scope.tempMax = $scope.day.temp.max;
+                    } else {
+                        $scope.tempCurrent = $scope.day.main.temp;
+                        $scope.tempMin = $scope.day.main.temp_min;
+                        $scope.tempMax = $scope.day.main.temp_max;
+                    }
+                    $scope.description = $scope.day.weather[0].description;
+                    $scope.icon = 'http://openweathermap.org/img/w/' + $scope.day.weather[0].icon + '.png';
+                }
+            ],
+            scope: {
+                day: '=',
+                isForecast: '='
             }
         };
     }

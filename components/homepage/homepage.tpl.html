@@ -1,24 +1,22 @@
-<div>
-    This is Stephen Yuan's homepage!
-</div>
+<h1>
+    Stephen Yuan's homepage!
+</h1>
 
-<div>
-    Weather
-</div>
-
-<div>
-    <div>favourite</div>
+<div class="">
     <div class="row">
-        <div class="col-xs-2" 
+        <div class="col-md-2 col-sm-3 col-xs-4" 
              favourite ng-repeat="website in favourites" website="website">
         </div>
     </div>
 </div>
 
 <script type="text/ng-template" id="favourite.d.html">
-    <div>
-        <a ng-href="{{website.href}}" title="{{website.title}}">
+    <a class="favourite-website btn btn-default btn-lg btn-block" ng-click="direct()">
+        <div>
+            <img class="favourite-img" ng-src="{{website.img}}" />
+        </div>
+        <div>
             {{website.title}}
-        </a>
-    </div>
+        </div>
+    </a>
 </script>

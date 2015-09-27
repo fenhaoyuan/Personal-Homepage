@@ -5,3 +5,7 @@ var myApp = angular.module('myApp', [
 //    'ui.bootstrap',
     'homepage'
 ]);
+
+myApp.config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
+});

@@ -2,7 +2,7 @@
     Stephen Yuan's homepage!
 </h1>
 
-<div class="">
+<div class="favourite-container">
     <div class="row">
         <div favourite class="col-md-2 col-sm-3 col-xs-4" 
              ng-repeat="website in favourites" website="website">
@@ -10,15 +10,17 @@
     </div>
 </div>
 
-<div class="panel panel-default">
+<div class="weather-container panel panel-default">
     <div class="panel-body">
-        <div class="row">
-            <div weather-day class="col-md-3 col-sm-4 col-xs-6" ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" ng-if="weatherForecast" 
-                 ng-repeat="day in weatherForecast" day="day" index="$index"></div>
+        <div class="row" ng-if="showingWeather">
+            <div weather-day class="col-md-3 col-sm-4 col-xs-6" ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
+                 ng-if="weatherForecast" ng-repeat="day in weatherForecast" day="day" index="$index">
+            </div>
         </div>
     </div>
 </div>
 
+<!------------------------------- Templates ----------------------------------->
 <script type="text/ng-template" id="favourite.d.html">
     <a class="favourite-website btn btn-default btn-lg btn-block" ng-href="{{website.href}}" target="_blank">
         <div>
@@ -49,3 +51,4 @@
         {{day.high.celsius}} &#8451;
     </div>
 </script>
+<!----------------------------------------------------------------------------->

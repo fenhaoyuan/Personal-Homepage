@@ -2,6 +2,22 @@
     Stephen Yuan's homepage!
 </h1>
 
+<div class="weather-container panel panel-default">
+    <div class="panel-body">
+        <div class="text-center" ng-if="!showingWeather">
+            <button class="btn btn-success btn-lg" ng-click="showWeather()">
+                Weather Forecast
+            </button>
+        </div>
+        <div class="row" ng-if="showingWeather && weatherForecast">
+            <div weather-day class="col-md-3 col-sm-4 col-xs-6" 
+                 ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
+                 ng-repeat="day in weatherForecast" day="day">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="favourite-container">
     <div class="row">
         <div favourite class="col-md-2 col-sm-3 col-xs-4" 
@@ -10,24 +26,10 @@
     </div>
 </div>
 
-<div class="weather-container panel panel-default">
-    <div class="panel-body">
-        <div class="text-center">
-            <button class="btn btn-success btn-lg" ng-click="showWeather()" ng-if="!showingWeather">
-                Weather Forecast
-            </button>
-        </div>
-        <div class="row" ng-if="showingWeather">
-            <div weather-day class="col-md-3 col-sm-4 col-xs-6" ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
-                 ng-if="weatherForecast" ng-repeat="day in weatherForecast" day="day" index="$index">
-            </div>
-        </div>
-    </div>
-</div>
-
 <!------------------------------- Templates ----------------------------------->
 <script type="text/ng-template" id="favourite.d.html">
-    <a class="favourite-website btn btn-default btn-lg btn-block" ng-href="{{website.href}}" target="_blank">
+    <a class="favourite-website btn btn-default btn-lg btn-block" 
+       ng-href="{{website.href}}" target="_blank">
         <div>
             <img class="favourite-img" ng-src="{{website.img}}" />
         </div>

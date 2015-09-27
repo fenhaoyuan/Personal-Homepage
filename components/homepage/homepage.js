@@ -7,7 +7,7 @@ homepage.controller('homepageCtrl', ['$scope', 'favourites', '$http', 'weatherAP
         $scope.favourites = favourites;
         
         $scope.forecast = function() {
-            $http.get(weatherAPI.Melbourne).then(
+            $http.get(weatherAPI.city('Australia/Melbourne')).then(
                 function(response) {
                     if (response.data.response.features.forecast) {
                         $scope.weatherForecast = response.data.forecast.simpleforecast.forecastday;
@@ -124,6 +124,17 @@ homepage.value('favourites', [
     }
 ]);
 
-homepage.value('weatherAPI', {
-    Melbourne: 'http://api.wunderground.com/api/4e91f18809720bd8/forecast/q/Australia/Melbourne.json'
-});
+homepage.factory('weatherAPI', [
+    function() {
+        var url = 'http://api.wunderground.com/api/';
+        var key = '4e91f18809720bd8';
+        var feature = 'forecast';
+        var type = '.json';
+        
+        return {
+            city: function(city) {
+                return url + key + '/' + feature + '/q/' + city + type;
+            }
+        };
+    }
+]);

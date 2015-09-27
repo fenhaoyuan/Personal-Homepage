@@ -108,6 +108,11 @@ homepage.value('favourites', [
         img: 'https://www.flybuys.com.au/opencms/opencms/flybuys-static/imgs/root/favicon.png'
     },
     {
+        title: 'YouTube',
+        href: 'http://www.youtube.com.au',
+        img: 'https://s.ytimg.com/yts/img/favicon_32-vfl8NGn4k.png'
+    },
+    {
         title: 'Translate',
         href: 'https://translate.google.com.au/',
         img: 'https://www.google.com/images/branding/product/ico/translate_32dp.ico'

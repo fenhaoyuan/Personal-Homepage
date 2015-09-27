@@ -12,6 +12,11 @@
 
 <div class="weather-container panel panel-default">
     <div class="panel-body">
+        <div class="text-center">
+            <button class="btn btn-success btn-lg" ng-click="showWeather()" ng-if="!showingWeather">
+                Weather Forecast
+            </button>
+        </div>
         <div class="row" ng-if="showingWeather">
             <div weather-day class="col-md-3 col-sm-4 col-xs-6" ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
                  ng-if="weatherForecast" ng-repeat="day in weatherForecast" day="day" index="$index">

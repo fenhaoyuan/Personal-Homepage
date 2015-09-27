@@ -1,5 +1,13 @@
-.favourite-container {
+body {
+    background: #F8F8F8;
+}
+
+body > .container {
     margin-top: 50px;
+}
+
+.favourite-container {
+    margin-top: 80px;
 }
 .favourite-website {
     text-align: center;
@@ -14,7 +22,7 @@
 }
 
 .weather-container {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .weather-label {
     font-size: 20px;

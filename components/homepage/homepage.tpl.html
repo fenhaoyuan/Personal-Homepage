@@ -9,8 +9,10 @@
                 Weather Forecast
             </button>
         </div>
-        <div class="timer-loader" ng-if="showingWeather && weatherForecastLoading">
-            Loading...
+        <div class="text-center" ng-if="showingWeather && weatherForecastLoading">
+            <div class="timer-loader">
+                Loading...
+            </div>
         </div>
         <div class="row" ng-if="showingWeather && !weatherForecastLoading && weatherForecast">
             <div weather-day class="col-md-3 col-sm-4 col-xs-6" 

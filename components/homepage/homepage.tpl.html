@@ -1,5 +1,5 @@
 <h1>
-    Stephen Yuan's homepage!
+    Stephen Yuan's Homepage!
 </h1>
 
 <div class="weather-container panel panel-default">
@@ -9,7 +9,10 @@
                 Weather Forecast
             </button>
         </div>
-        <div class="row" ng-if="showingWeather && weatherForecast">
+        <div class="timer-loader" ng-if="showingWeather && weatherForecastLoading">
+            Loading...
+        </div>
+        <div class="row" ng-if="showingWeather && !weatherForecastLoading && weatherForecast">
             <div weather-day class="col-md-3 col-sm-4 col-xs-6" 
                  ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
                  ng-repeat="day in weatherForecast" day="day">

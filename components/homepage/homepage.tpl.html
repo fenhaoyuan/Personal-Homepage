@@ -4,18 +4,18 @@
 
 <div class="weather-container panel panel-default">
     <div class="panel-body">
-        <div class="text-center" ng-if="!showingWeather">
+        <div class="text-center" ng-if="::!showingWeather">
             <button class="btn btn-success btn-lg" ng-click="showWeather()">
                 Weather Forecast
             </button>
         </div>
-        <div class="timer-loader" ng-if="showingWeather && weatherForecastLoading">
+        <div class="timer-loader" ng-if="::showingWeather && weatherForecastLoading">
             Loading...
         </div>
-        <div class="row" ng-if="showingWeather && !weatherForecastLoading && weatherForecast">
+        <div class="row" ng-if="::showingWeather && !weatherForecastLoading && weatherForecast">
             <div weather-day class="col-md-3 col-sm-4 col-xs-6" 
-                 ng-class="{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
-                 ng-repeat="day in weatherForecast" day="day">
+                 ng-class="::{'hidden-sm': $index>2, 'hidden-xs' : $index>1}" 
+                 ng-repeat="day in ::weatherForecast" day="day">
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
 <div class="favourite-container">
     <div class="row">
         <div favourite class="col-md-2 col-sm-3 col-xs-4" 
-             ng-repeat="website in favourites" website="website">
+             ng-repeat="website in ::favourites" website="website">
         </div>
     </div>
 </div>
@@ -37,7 +37,7 @@
             <img class="favourite-img" ng-src="{{website.img}}" />
         </div>
         <div class="favourite-title">
-            {{website.title}}
+            {{::website.title}}
         </div>
     </a>
 </script>
@@ -45,20 +45,20 @@
 <script type="text/ng-template" id="weather-day.d.html">
     <div>
         <span class="weather-label">
-            {{day.date.weekday}}
+            {{::day.date.weekday}}
         </span>
         <img ng-src="{{day.icon_url}}" />
     </div>
     <div>
-        {{day.date.day}} {{day.date.monthname_short}}
+        {{::day.date.day}} {{::day.date.monthname_short}}
     </div>
     <div>
-        {{day.conditions}}
+        {{::day.conditions}}
     </div>
     <div class="weather-temperature">
-        <strong>{{day.low.celsius}}</strong> &#8451;
+        <strong>{{::day.low.celsius}}</strong> &#8451;
         ~
-        <strong>{{day.high.celsius}}</strong> &#8451;
+        <strong>{{::day.high.celsius}}</strong> &#8451;
     </div>
 </script>
 <!----------------------------------------------------------------------------->

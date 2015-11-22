@@ -6,11 +6,14 @@ homepage.controller('homepageCtrl', ['$scope', 'favourites', '$http', 'weatherAP
     function($scope, favourites, $http, weatherAPI) {
         $scope.favourites = favourites;
         
+        // Load weather forecast
         $scope.forecast = function() {
+            $scope.weatherForecastLoading = true;
             $http.get(weatherAPI.city('Australia/Melbourne')).then(
                 function(response) {
                     if (response.data.response.features.forecast) {
                         $scope.weatherForecast = response.data.forecast.simpleforecast.forecastday;
+                        $scope.weatherForecastLoading = false;
                     }
                 }
             );

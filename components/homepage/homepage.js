@@ -116,19 +116,19 @@ homepage.value('favourites', [
         img: 'https://s.ytimg.com/yts/img/favicon_32-vfl8NGn4k.png'
     },
     {
-        title: 'Translate',
-        href: 'https://translate.google.com.au/',
-        img: 'https://www.google.com/images/branding/product/ico/translate_32dp.ico'
-    },
-    {
         title: 'Maps',
         href: 'https://www.google.com.au/maps',
         img: 'https://www.google.com/images/branding/product/ico/maps_32dp.ico'
     },
     {
-        title: 'Apple',
-        href: 'https://reserve.cdn-apple.com/AU/en_AU/reserve/iPhone/availability?channel=1&appleCare=N&iPP=N&partNumber=MKU92X/A&returnURL=http%3A%2F%2Fwww.apple.com%2Fau%2Fshop%2Fbuy-iphone%2Fiphone6s%2F5.5-inch-display-64gb-rose-gold',
-        img: 'https://www.apple.com/favicon.ico'
+        title: 'AWS',
+        href: 'https://aws.amazon.com',
+        img: 'https://a0.awsstatic.com/main/images/site/favicon.ico'
+    },
+    {
+        title: 'GitHub',
+        href: 'https://www.github.com',
+        img: 'https://assets-cdn.github.com/favicon.ico'
     }
 ]);
 
